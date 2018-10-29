@@ -31,18 +31,35 @@ class App extends Component {
   }
    
   render() {
+  
+    let persons = null;
+
+    if (this.state.showPerson){
+      persons =(
+        <div>
+        <Person changed ={this.nameHandler} userName ={this.state.Person[1].name} userAge ={this.state.Person[1].age}/>
+        <Person changed ={this.nameHandler} userName ={this.state.Person[2].name} userAge ={this.state.Person[2].age}/>
+        <Person changed ={this.nameHandler} userName ={this.state.Person[3].name} userAge ={this.state.Person[3].age}/>
+        </div>
+      );
+    }
+
     return (
       <div className="App">
       <button
       onClick={this.togglePersonHandler}>Toggle names</button>
-      {
+      {/* {
       this.state.showPerson ===true ?
       <div>
       <Person changed ={this.nameHandler} userName ={this.state.Person[1].name} userAge ={this.state.Person[1].age}/>
       <Person changed ={this.nameHandler} userName ={this.state.Person[2].name} userAge ={this.state.Person[2].age}/>
       <Person changed ={this.nameHandler} userName ={this.state.Person[3].name} userAge ={this.state.Person[3].age}/>
-      </div> : null
-      }
+      </div> : null 
+     }
+      */}
+
+      {persons}
+    
       </div>
       
     );
